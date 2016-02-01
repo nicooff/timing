@@ -1,0 +1,9 @@
+bin/
+nek/
+obj/
+*.sch*
+*0.f0*
+*~
+makefile
+compiler.out
+nek5000

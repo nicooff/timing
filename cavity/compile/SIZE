@@ -1,0 +1,190 @@
+c     Dimension file to be included
+c
+c     HCUBE array dimensions
+c
+c     REMARK: All parameters have to be >= 1 and parameters in the Z-direction 
+c     (e.g. LZ1) have to be 1 for a 2D case !!
+c
+cccccccccccccccccccccccc
+c   BASIC PARAMETERS   c
+cccccccccccccccccccccccc
+c
+c   number of spatial dimensions
+      parameter (ldim=2)
+c
+c   mysterious parameter equal to 1 if ldim=2 and to 3 if ldim=3
+      parameter (lzl=3 + 2*(ldim-3))
+c            
+c   number of points in x,y,z direction within each element of mesh1 (velocity)
+      parameter (lx1=8,ly1=lx1,lz1=1)
+c
+c   number of points in x,y,z direction within each element of mesh2 (pressure)
+c   ! l{x,y,x}2 = l{x,y,x}1 for PN/PN formulation
+c   ! l{x,y,x}2 = l{x,y,x}1-2 for PN-2/PN-2 formulation
+      parameter (lx2=lx1-2, ly2=ly1-2, lz2=1)
+c
+c   number of points in x,y,z direction within each element of mesh3
+      parameter (lx3=lx2, ly3=ly2, lz3=1)
+c
+c   number of points for overintegration (dealiasing)
+c   ! use three half rule: l{x,y,x}d = 3/2*l{x,y,z}1
+      parameter (lxd=(3*lx1)/2,lyd=lxd,lzd=1)
+c
+c   maximum number of elements per processor for global fdm solver
+      parameter (lelx=1,lely=1,lelz=1)
+
+c   maximum number of T-array fields (temperature + additional scalars)
+c   ! = 1 if 0 passive scalars
+c   ! add 1 for each additional passive scalar
+      parameter (ldimt=1)
+      parameter (ldimt1=ldimt+1)
+      parameter (ldimt3=ldimt+3)
+c
+c   maximum number of processor
+      parameter (lp=8)
+c
+c   maximum number of local elements for T-mesh 
+c   ! LELT >= int(NELGT/NP) + 1 where NELGT<=LELG and NP<=LP
+      parameter (lelt=1000)
+c
+c   maximum number of local elements for V-mesh 
+c   ! LELV = LELT
+      parameter (lelv=lelt)
+c
+c   maximum number of elements
+      parameter (lelg=1000)
+c
+c   maximum time integration order (2 or 3)
+      parameter (lorder=3)
+c
+c   maximum number of history entries for residual projection
+c   ! recommended value: 20
+      parameter (mxprev=20)
+c
+c   maximum dimension of GMRES Krylov subspace 
+c   ! recommended value: 40
+      parameter (lgmres=40)
+c
+c   maximum number of objects
+      parameter (maxobj=4)
+c
+c   maximum number of object members 
+      parameter(maxmbr=lelt*6)
+c
+c   maximum number of history points a single processor will read in 
+c   ! np*lhis > number of points in hpts.in
+      parameter (lhis=100)
+c
+ccccccccccccccccccccccccccccccccccccccccccccc
+c   MAGNETOHYDRODYNAMICS (MHD) PARAMETERS   c
+ccccccccccccccccccccccccccccccccccccccccccccc
+c   
+c   total number of elements of the B-field (MHD) 
+      parameter (lbelv=1,lbelt=1)
+c OR  parameter (lbelv=lelv,lbelt=lelt)
+c
+c   number of points in x,y,z direction of B-field within each element of mesh1
+      parameter (lbx1=1,lby1=1,lbz1=1)           ! array sizes
+c OR  parameter (lbx1=lx1,lby1=ly1,lbz1=lz1)     ! array sizes
+c
+c   number of points in x,y,z direction of B-field within each element of mesh2
+      parameter (lbx2=1,lby2=1,lbz2=1)           ! array sizes
+c OR  parameter (lbx2=lx2,lby2=ly2,lbz2=lz2)     ! array sizes
+c
+c   number of elements of the perturbation field, number of perturbation fields
+      parameter (lpelv=1,lpelt=1,lpert=1)        ! perturbation 
+c OR  parameter (lpelv=lelv,lpelt=lelt,lpert=3)  ! perturbation
+c
+c   number of point in x,y,z direction of perturbation field within each element of mesh1 
+      parameter (lpx1=1,lpy1=1,lpz1=1)           ! array sizes
+c OR  parameter (lpx1=lx1,lpy1=ly1,lpz1=lz1)     ! array sizes
+c
+c   number of point in x,y,z direction of perturbation field within each element of mesh2 
+      parameter (lpx2=1,lpy2=1,lpz2=1)
+c OR  parameter (lpx2=lx2,lpy2=ly2,lpz2=lz2)
+c
+ccccccccccccccccccccccccccccccc
+c   MOVING MESHES PARAMETER   c
+ccccccccccccccccccccccccccccccc
+c
+c     LX1M=LX1 when there are moving meshes; =1 otherwise
+      parameter (lx1m=1,ly1m=1,lz1m=1)
+c
+cccccccccccccccccccccccccccc
+c   MYSTERIOUS PARAMETER   c
+cccccccccccccccccccccccccccc
+c
+c     mysterious (but necessary) parameter
+      parameter (LXZ=LX1*LZ1)
+c
+ccccccccccccccccccccccccccccccc
+c   COMMON BLOCK DIMENSIONS   c
+ccccccccccccccccccccccccccccccc
+c
+      parameter (LCTMP0=2*LX1*LY1*LZ1*LELT)
+      parameter (LCTMP1=4*LX1*LY1*LZ1*LELT)
+c
+cccccccccccccccccccccccccccccc
+c   STEADY STATE PARAMETER   c
+cccccccccccccccccccccccccccccc
+c
+c     The parameter LVEC controls whether an additional 42 field arrays
+c     are required for Steady State Solutions.  If you are not using
+c     Steady State, it is recommended that LVEc=1.
+c
+      parameter (LVEC=1)
+c
+cccccccccccccccccccccccccccccccccccccccc
+c   SPLIT PROJECTION ARRAY DIMENSIONS  c
+cccccccccccccccccccccccccccccccccccccccc
+c
+      parameter(lmvec=1)
+      parameter(lsvec=1)
+      parameter(lstore=lmvec*lsvec)   
+c
+cccccccccccccccccccccccccc
+c   NONCONFORMING STUFF  c
+cccccccccccccccccccccccccc
+c
+      parameter (maxmor=lelt)
+c
+cccccccccccccccccccccccc
+c   ARRAY DIMENSIONS   c
+cccccccccccccccccccccccc
+c
+      COMMON/DIMN/NELV,NELT,NX1,NY1,NZ1,NX2,NY2,NZ2
+     $,NX3,NY3,NZ3,NDIM,NFIELD,NPERT,NID
+     $,NXD,NYD,NZD
+c
+cccccccccccccccccccccccccccccccccccccc
+c   AUTOMATICALLY ADDED BY MAKENEK   c
+cccccccccccccccccccccccccccccccccccccc
+
+c automatically added by makenek
+      parameter(lxo   = lx1) ! max output grid size (lxo>=lx1)
+
+c automatically added by makenek
+      parameter(lpart = 1  ) ! max number of particles/proc
+
+c automatically added by makenek
+      integer ax1,ay1,az1,ax2,ay2,az2
+      parameter (ax1=lx1,ay1=ly1,az1=lz1,ax2=lx2,ay2=ly2,az2=lz2) ! running averages
+
+c automatically added by makenek
+      parameter (lxs=1,lys=lxs,lzs=(lxs-1)*(ldim-2)+1) !New Pressure Preconditioner
+
+c automatically added by makenek
+      parameter (lfdm=0)  ! == 1 for fast diagonalization method
+
+c automatically added by makenek
+      common/IOFLAG/nio  ! for logfile verbosity control
+
+c automatically added by makenek
+      integer toteq
+      parameter(toteq = 1  ) ! Number of conserved variables 
+c IFCMT=FALSE  then toteq=1
+
+c automatically added by makenek
+      integer lelcmt
+      parameter(lelcmt = 1  ) ! # of cmt elements 
+c IFCMT=FALSE  then lelcmt=1

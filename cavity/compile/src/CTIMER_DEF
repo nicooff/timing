@@ -1,0 +1,7 @@
+c     Missing definitions for CTIMER      
+      integer nmxmf,nmxms,ndsum,naxhm,ncopy,ninvc,ninv3
+     $        ,nsolv,ngsum,ndsnd,ndadd,ncdtp,nmltd,nprep
+     $        ,npres,nhmhz,ngop ,ngop1,ndott,nbsol,nbso2
+     $        ,nsett,nslvb,nusbc,nddsl,ncrsl,ndsmx,ndsmn
+     $        ,ngsmn,ngsmx,neslv,nbbbb,ncccc,ndddd,neeee
+     $        ,nvdss,nadvc,nspro,ngop_sync,nsyc,nwal,ngp2

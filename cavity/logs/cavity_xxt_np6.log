@@ -1,0 +1,1258 @@
+/----------------------------------------------------------\\
+|      _   __ ______ __ __  ______  ____    ____    ____   |
+|     / | / // ____// //_/ / ____/ / __ \\ / __ \\ / __ \\ |
+|    /  |/ // __/  / ,<   /___ \\  / / / // / / // / / /   |
+|   / /|  // /___ / /| | ____/ / / /_/ // /_/ // /_/ /     |
+|  /_/ |_//_____//_/ |_|/_____/  \\____/ \\____/ \\____/   |
+|                                                          |
+|----------------------------------------------------------|
+|                                                          |
+| NEK5000:  Open Source Spectral Element Solver            |
+| COPYRIGHT (c) 2008-2010 UCHICAGO ARGONNE, LLC            |
+| Version:  1.0rc1 / SVN  r1088                            |
+| Web:      http://nek5000.mcs.anl.gov                     |
+|                                                          |
+\\----------------------------------------------------------/
+                                                              
+
+ Number of processors:           6
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+
+
+  Beginning session:
+  /scratch/nof/phd/simulations/timing/cavity/run/cavity.rea                     
+
+ 
+ timer accuracy:   0.0000000E+00 sec
+
+ read .rea file
+ nelgt/nelgv/lelt:          36          36        1000
+ lx1  /lx2  /lx3 :           8           6           6
+
+ mapping elements to processors
+           0           6           6          36          36  NELV
+           1           6           6          36          36  NELV
+           2           6           6          36          36  NELV
+           3           6           6          36          36  NELV
+           4           6           6          36          36  NELV
+           5           6           6          36          36  NELV
+ RANK     0 IEG      20      21      27      31      32      33
+ element load imbalance:            0           6           6
+ done :: mapping elements to processors
+  
+           0  objects found
+ done :: read .rea file   0.39651E-02 sec
+
+ setup mesh topology
+   Right-handed check complete for      36 elements. OK.
+   setvert2d:   8         553        1849         553         553
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 198 unique labels shared
+   pairwise times (avg, min, max): 2.87294e-06 2.7895e-06 2.90871e-06
+   crystal router                : 3.80675e-06 3.69549e-06 3.91006e-06
+   all reduce                    : 4.00941e-06 3.8147e-06 4.50611e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 2910.67 2364 3212
+   buffer bytes (avg, min, max): 1114.67 592 1424
+   setupds time 6.8188E-04 seconds   0  8         553          36
+           4  max multiplicity
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ vol_t,vol_v:   1.0000000000000000        1.0000000000000000     
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+ regenerate geometry data           1
+ vol_t,vol_v:  0.99999999999999911       0.99999999999999911     
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+   0.0000000000000000        1.0000000000000004       Xrange
+   0.0000000000000000        1.0000000000000004       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+ 128   Parameters from file:/scratch/nof/phd/simulations/timing/cavity/run/cavity.rea
+   1       1.00000E+00         P001  DENSITY     density for the case of constant properties (see parameter P030)
+   2      -1.00000E+02         P002  VISCOS      dynamic viscosity (1/Re if the reference values are used to define the Re number) if <0, i
+  11       1.00000E+02         P011  NSTEP       number of time steps
+  12       1.00000E-01         P012  DT          upper bound on time step dt   (if <0, then dt=|p012|, always)
+  15       1.00000E+02         P015  IOSTEP      dump frequency, number of time steps between dumps
+  21       1.00000E-06         P021  DIVERGENCE  tolerance for the pressure solver
+  22       1.00000E-08         P022  HELMHOLTZ   tolerance for the velocity solver
+  26       5.00000E-01         P026  COURANT     maximum Courant number (number of RK4 substeps if OIFS is used)
+  27       2.00000E+00         P027  TORDER      temporal discretization order (2 or 3)
+  28       2.00000E+00         P028  NABMSH      order of temporal integration for mesh velocity.
+  66       0.00000E+00         P066              output format: (only postx uses .rea value; other nondefault should be set in usrdat)
+  67       0.00000E+00         P067              Read format:   (modes as for P066)
+  99       0.00000E+00         P099              dealiasing:   <0:  disable
+  
+ IFTRAN   = T
+ IFFLOW   = T
+ IFHEAT   = F
+ IFSPLIT  = F
+ IFLOMACH = F
+ IFUSERVP = F
+ IFUSERMV = F
+ IFSTRS   = F
+ IFCHAR   = F
+ IFCYCLIC = F
+ IFAXIS   = F
+ IFMVBD   = F
+ IFMELT   = F
+ IFMODEL  = F
+ IFKEPS   = F
+ IFMOAB   = F
+ IFNEKNEK = F
+ IFSYNC   = T
+   
+ IFVCOR   = T
+ IFINTQ   = F
+ IFCWUZ   = F
+ IFSWALL  = F
+ IFGEOM   = F
+ IFSURT   = F
+ IFWCNO   = F
+ IFCMT    = F
+ IFVISC   = F
+ IFFLTR   = F
+   
+ IFTMSH for field           1    =  F
+ IFADVC for field           1    =  T
+ IFNONL for field           1    =  F
+   
+ Dealiasing enabled, lxd=          12
+  
+ Estimated eigenvalues
+ EIGAA =    9.8696044010893491     
+ EIGGA =    93997.295807802278     
+ EIGAE =    9.8696044010893491     
+ EIGAS =   0.12500000000000000     
+ EIGGE =    93997.295807802278     
+ EIGGS =    2.0000000000000000     
+  
+ verify mesh topology
+   0.0000000000000000        1.0000000000000004       Xrange
+   0.0000000000000000        1.0000000000000004       Yrange
+   0.0000000000000000        0.0000000000000000       Zrange
+ done :: verify mesh topology
+  
+  E-solver strategy:  1 itr
+ mg_nx:           1           3           7
+ mg_ny:           1           3           7
+ mg_nz:           0           0           0
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 30 unique labels shared
+   pairwise times (avg, min, max): 2.33253e-06 2.09808e-06 2.5034e-06
+   crystal router                : 2.03451e-06 2.00272e-06 2.09808e-06
+   all reduce                    : 2.66234e-06 2.59876e-06 2.69413e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 2184 1388 2716
+   buffer bytes (avg, min, max): 392 256 480
+   setupds time 3.1209E-04 seconds   1  2          49          36
+   setvert2d:   4         217         361         217         217
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 86 unique labels shared
+   pairwise times (avg, min, max): 2.83718e-06 2.69413e-06 2.88486e-06
+   crystal router                : 2.53518e-06 2.40803e-06 2.69413e-06
+   all reduce                    : 2.9405e-06 2.90871e-06 3.00407e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 4760 2780 6028
+   buffer bytes (avg, min, max): 1032 640 1280
+   setupds time 4.2605E-04 seconds   2  4         217          36
+   setvert2d:   4         217         361         217         217
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 86 unique labels shared
+   pairwise times (avg, min, max): 2.12987e-06 2.09808e-06 2.19345e-06
+   crystal router                : 3.74317e-06 3.60012e-06 3.79086e-06
+   all reduce                    : 3.14713e-06 3.09944e-06 3.19481e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 1502.67 1212 1676
+   buffer bytes (avg, min, max): 517.333 272 656
+   setupds time 4.2796E-04 seconds   3  4         217          36
+   setvert2d:   6         385         961         385         385
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 142 unique labels shared
+   pairwise times (avg, min, max): 3.01997e-06 3.00407e-06 3.09944e-06
+   crystal router                : 3.50873e-06 3.09944e-06 3.88622e-06
+   all reduce                    : 3.23455e-06 3.21865e-06 3.31402e-06
+   used all_to_all method: pairwise
+   handle bytes (avg, min, max): 2206.67 1788 2444
+   buffer bytes (avg, min, max): 816 432 1040
+   setupds time 5.1284E-04 seconds   4  6         385          36
+ setup h1 coarse grid, nx_crs=           2
+ call usrsetvert
+ done :: usrsetvert
+
+gs_setup: 30 unique labels shared
+   pairwise times (avg, min, max): 4.26372e-06 4.19617e-06 4.41074e-06
+   crystal router                : 2.00669e-06 1.78814e-06 2.19345e-06
+   all reduce                    : 2.26498e-06 2.21729e-06 2.31266e-06
+   used all_to_all method: crystal router
+   handle bytes (avg, min, max): 2184 1388 2716
+   buffer bytes (avg, min, max): 392 256 480
+ done :: setup h1 coarse grid    6.2489509582519531E-004  sec
+  
+ call usrdat3
+ done :: usrdat3
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min     0.0000       0.0000       0.0000    
+ uvwpt min   0.0000       0.0000       0.0000       0.0000       0.0000    
+ xyz max     1.0000       1.0000       0.0000    
+ uvwpt max   0.0000       0.0000       0.0000       0.0000       0.0000    
+ done :: set initial conditions
+  
+ call userchk
+           0  tcrsl_min:    0.0000000000000000     
+           0  tcrsl_max:    0.0000000000000000     
+           0  tcrsl_avg:    0.0000000000000000     
+ done :: userchk
+
+gridpoints unique/tot:          1849         2304
+  dofs:                 1681                 1296
+  
+ Initialization successfully completed   0.13775E-01 sec
+
+Starting time loop ...
+
+     DT/DTCFL/DTFS/DTINIT   0.534E-02   0.534E-02   0.000E+00   0.100E+00
+Step      1, t= 5.3441391E-03, DT= 5.3441391E-03, C=  0.500 0.0000E+00 0.0000E+00
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            1           1
+  1     1 Helmholtz VELX    F:   9.0067E+00   1.0000E-08   1.0000E-02   1.8712E+02
+  1     2 Helmholtz VELX    F:   1.9012E+00   1.0000E-08   1.0000E-02   1.8712E+02
+  1     3 Helmholtz VELX    F:   4.4739E-01   1.0000E-08   1.0000E-02   1.8712E+02
+  1     4 Helmholtz VELX    F:   1.5142E-01   1.0000E-08   1.0000E-02   1.8712E+02
+  1     5 Helmholtz VELX    F:   3.4198E-02   1.0000E-08   1.0000E-02   1.8712E+02
+  1     6 Helmholtz VELX    F:   1.0387E-02   1.0000E-08   1.0000E-02   1.8712E+02
+  1     7 Helmholtz VELX    F:   2.3599E-03   1.0000E-08   1.0000E-02   1.8712E+02
+  1     8 Helmholtz VELX    F:   8.3992E-04   1.0000E-08   1.0000E-02   1.8712E+02
+  1     9 Helmholtz VELX    F:   2.0882E-04   1.0000E-08   1.0000E-02   1.8712E+02
+  1    10 Helmholtz VELX    F:   5.8465E-05   1.0000E-08   1.0000E-02   1.8712E+02
+  1    11 Helmholtz VELX    F:   1.5418E-05   1.0000E-08   1.0000E-02   1.8712E+02
+  1    12 Helmholtz VELX    F:   3.8284E-06   1.0000E-08   1.0000E-02   1.8712E+02
+  1    13 Helmholtz VELX    F:   1.2370E-06   1.0000E-08   1.0000E-02   1.8712E+02
+  1    14 Helmholtz VELX    F:   2.9643E-07   1.0000E-08   1.0000E-02   1.8712E+02
+  1    15 Helmholtz VELX    F:   1.0054E-07   1.0000E-08   1.0000E-02   1.8712E+02
+  1    16 Helmholtz VELX    F:   3.0547E-08   1.0000E-08   1.0000E-02   1.8712E+02
+  1    17 Helmholtz VELX    F:   9.9009E-09   1.0000E-08   1.0000E-02   1.8712E+02
+          1    Hmholtz VELX:     16   9.9009E-09   9.0067E+00   1.0000E-08
+   1.0000000000000000E-008  p22            1           1
+  1     1 Helmholtz VELY    F:   0.0000E+00   1.0000E-08   1.0000E-02   1.8712E+02
+          1    Hmholtz VELY:      0   0.0000E+00   0.0000E+00   1.0000E-08
+    1 1.00000E-06 2.23234E-01 3.26310E-01 6.84117E-01       1 Divergence
+    2 1.00000E-06 1.04065E-01 3.26310E-01 3.18913E-01       1 Divergence
+    3 1.00000E-06 3.60656E-02 3.26310E-01 1.10525E-01       1 Divergence
+    4 1.00000E-06 1.05167E-02 3.26310E-01 3.22291E-02       1 Divergence
+    5 1.00000E-06 3.37149E-03 3.26310E-01 1.03322E-02       1 Divergence
+    6 1.00000E-06 1.27047E-03 3.26310E-01 3.89344E-03       1 Divergence
+    7 1.00000E-06 3.31396E-04 3.26310E-01 1.01558E-03       1 Divergence
+    8 1.00000E-06 9.09617E-05 3.26310E-01 2.78758E-04       1 Divergence
+    9 1.00000E-06 2.20258E-05 3.26310E-01 6.74996E-05       1 Divergence
+   10 1.00000E-06 6.08258E-06 3.26310E-01 1.86405E-05       1 Divergence
+   11 1.00000E-06 2.03505E-06 3.26310E-01 6.23655E-06       1 Divergence
+   12 1.00000E-06 5.42758E-07 3.26310E-01 1.66332E-06       1 Divergence
+         1 U-PRES gmres:     12  5.4276E-07  1.0000E-06  3.2631E-01  6.7878E-04  1.5018E-03
+          1   5.3441E-03  2.5001E-03 Fluid done
+           1  tcrsl_min:    7.6770782470703125E-005
+           1  tcrsl_max:    8.7261199951171875E-005
+           1  tcrsl_avg:    8.2612037658691406E-005
+ schfile:/scratch/nof/phd/simulations/timing/cavity/run/cavity.sch                                                                           
+Step      2, t= 1.0688278E-02, DT= 5.3441391E-03, C=  0.500 4.0491E-03 4.0491E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            2           1
+          2    Hmholtz VELX:     15   3.1109E-09   8.0916E+00   1.0000E-08
+   1.0000000000000000E-008  p22            2           1
+          2    Hmholtz VELY:     13   8.2341E-09   2.5102E+00   1.0000E-08
+         2 U-PRES gmres:     11  9.3712E-07  1.0000E-06  1.0519E-01  4.9782E-04  9.7799E-04
+          2   1.0688E-02  1.7109E-03 Fluid done
+           2  tcrsl_min:    1.2946128845214844E-004
+           2  tcrsl_max:    1.5521049499511719E-004
+           2  tcrsl_avg:    1.4619032541910806E-004
+Step      3, t= 1.6032417E-02, DT= 5.3441391E-03, C=  0.500 6.7790E-03 2.7299E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            3           1
+          3    Hmholtz VELX:     14   9.0418E-09   5.4406E+00   1.0000E-08
+   1.0000000000000000E-008  p22            3           1
+          3    Hmholtz VELY:     13   5.9378E-09   9.5981E-01   1.0000E-08
+         3 U-PRES gmres:     10  3.6215E-07  1.0000E-06  2.1756E-02  4.4966E-04  8.8096E-04
+          3   1.6032E-02  1.6010E-03 Fluid done
+           3  tcrsl_min:    1.7476081848144531E-004
+           3  tcrsl_max:    2.1433830261230469E-004
+           3  tcrsl_avg:    2.0277500152587891E-004
+Step      4, t= 2.1376556E-02, DT= 5.3441391E-03, C=  0.500 9.3431E-03 2.5642E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            4           1
+          4    Hmholtz VELX:     14   5.0379E-09   3.5192E+00   1.0000E-08
+   1.0000000000000000E-008  p22            4           1
+          4    Hmholtz VELY:     13   5.4502E-09   9.5486E-01   1.0000E-08
+         4 U-PRES gmres:      9  8.1256E-07  1.0000E-06  1.0365E-02  4.0269E-04  7.9393E-04
+          4   2.1377E-02  1.4939E-03 Fluid done
+           4  tcrsl_min:    2.1648406982421875E-004
+           4  tcrsl_max:    2.6965141296386719E-004
+           4  tcrsl_avg:    2.5415420532226563E-004
+Step      5, t= 2.6720696E-02, DT= 5.3441391E-03, C=  0.500 1.1735E-02 2.3918E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            5           1
+          5    Hmholtz VELX:     14   2.7398E-09   2.5473E+00   1.0000E-08
+   1.0000000000000000E-008  p22            5           1
+          5    Hmholtz VELY:     13   4.4478E-09   7.8356E-01   1.0000E-08
+         5 U-PRES gmres:      9  5.4123E-07  1.0000E-06  8.7001E-03  4.1771E-04  8.0991E-04
+          5   2.6721E-02  1.5140E-03 Fluid done
+           5  tcrsl_min:    2.6249885559082031E-004
+           5  tcrsl_max:    3.2639503479003906E-004
+           5  tcrsl_avg:    3.0831495920817059E-004
+Step      6, t= 3.2064835E-02, DT= 5.3441391E-03, C=  0.500 1.4130E-02 2.3952E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            6           1
+          6    Hmholtz VELX:     13   8.1330E-09   2.0541E+00   1.0000E-08
+   1.0000000000000000E-008  p22            6           1
+          6    Hmholtz VELY:     13   3.5803E-09   6.6259E-01   1.0000E-08
+         6 U-PRES gmres:      9  3.5537E-07  1.0000E-06  7.0143E-03  4.0507E-04  8.3113E-04
+          6   3.2065E-02  1.5140E-03 Fluid done
+           6  tcrsl_min:    3.0350685119628906E-004
+           6  tcrsl_max:    3.8123130798339844E-004
+           6  tcrsl_avg:    3.5901864369710285E-004
+Step      7, t= 3.7408974E-02, DT= 5.3441391E-03, C=  0.500 1.6522E-02 2.3918E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            7           1
+          7    Hmholtz VELX:     13   7.9055E-09   1.7652E+00   1.0000E-08
+   1.0000000000000000E-008  p22            7           1
+          7    Hmholtz VELY:     13   2.9181E-09   5.8221E-01   1.0000E-08
+         7 U-PRES gmres:      9  2.5139E-07  1.0000E-06  5.5665E-03  4.0483E-04  7.9608E-04
+          7   3.7409E-02  1.4760E-03 Fluid done
+           7  tcrsl_min:    3.4427642822265625E-004
+           7  tcrsl_max:    4.3749809265136719E-004
+           7  tcrsl_avg:    4.1039784749348957E-004
+Step      8, t= 4.2753113E-02, DT= 5.3441391E-03, C=  0.500 1.8866E-02 2.3441E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            8           1
+          8    Hmholtz VELX:     13   7.2517E-09   1.5619E+00   1.0000E-08
+   1.0000000000000000E-008  p22            8           1
+          8    Hmholtz VELY:     13   2.4851E-09   5.2659E-01   1.0000E-08
+         8 U-PRES gmres:      8  8.4514E-07  1.0000E-06  4.4577E-03  3.6097E-04  7.0691E-04
+          8   4.2753E-02  1.4200E-03 Fluid done
+           8  tcrsl_min:    3.8361549377441406E-004
+           8  tcrsl_max:    4.8542022705078125E-004
+           8  tcrsl_avg:    4.5601526896158856E-004
+Step      9, t= 4.8097252E-02, DT= 5.3441391E-03, C=  0.500 2.1156E-02 2.2900E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22            9           1
+          9    Hmholtz VELX:     13   6.5744E-09   1.4031E+00   1.0000E-08
+   1.0000000000000000E-008  p22            9           1
+          9    Hmholtz VELY:     13   2.2063E-09   4.8543E-01   1.0000E-08
+         9 U-PRES gmres:      8  6.9961E-07  1.0000E-06  3.6500E-03  3.5834E-04  7.0786E-04
+          9   4.8097E-02  1.3871E-03 Fluid done
+           9  tcrsl_min:    4.2176246643066406E-004
+           9  tcrsl_max:    5.3453445434570313E-004
+           9  tcrsl_avg:    5.0242741902669274E-004
+Step     10, t= 5.3441391E-02, DT= 5.3441391E-03, C=  0.500 2.3423E-02 2.2669E-03
+ Solving for fluid F T T
+   1.0000000000000000E-008  p22           10           1
+         10    Hmholtz VELX:     13   5.9905E-09   1.2741E+00   1.0000E-08
+   1.0000000000000000E-008  p22           10           1
+         10    Hmholtz VELY:     12   9.4318E-09   4.5295E-01   1.0000E-08
+        10 U-PRES gmres:      8  6.0233E-07  1.0000E-06  3.0629E-03  3.9411E-04  7.7391E-04
+         10   5.3441E-02  1.4389E-03 Fluid done
+          10  tcrsl_min:    4.6777725219726563E-004
+          10  tcrsl_max:    5.9151649475097656E-004
+          10  tcrsl_avg:    5.5642922719319665E-004
+Step     11, t= 5.8785530E-02, DT= 5.3441391E-03, C=  0.500 2.5740E-02 2.3172E-03
+ Solving for fluid F T T
+         11    Hmholtz VELX:     13   5.5589E-09   1.1672E+00   1.0000E-08
+         11    Hmholtz VELY:     12   8.8946E-09   4.2600E-01   1.0000E-08
+        11 U-PRES gmres:      8  5.3041E-07  1.0000E-06  2.6235E-03  3.6407E-04  7.0882E-04
+         11   5.8786E-02  1.3120E-03 Fluid done
+          11  tcrsl_min:    5.0449371337890625E-004
+          11  tcrsl_max:    6.3991546630859375E-004
+          11  tcrsl_avg:    6.0137112935384118E-004
+Step     12, t= 6.4129669E-02, DT= 5.3441391E-03, C=  0.500 2.7965E-02 2.2249E-03
+ Solving for fluid F T T
+         12    Hmholtz VELX:     13   5.2481E-09   1.0775E+00   1.0000E-08
+         12    Hmholtz VELY:     12   8.4273E-09   4.0292E-01   1.0000E-08
+        12 U-PRES gmres:      8  4.7328E-07  1.0000E-06  2.2811E-03  3.6097E-04  7.1812E-04
+         12   6.4130E-02  1.3120E-03 Fluid done
+          12  tcrsl_min:    5.4550170898437500E-004
+          12  tcrsl_max:    6.8926811218261719E-004
+          12  tcrsl_avg:    6.4829985300699866E-004
+Step     13, t= 6.9473808E-02, DT= 5.3441391E-03, C=  0.500 3.0143E-02 2.1780E-03
+ Solving for fluid F T T
+         13    Hmholtz VELX:     13   4.9929E-09   1.0014E+00   1.0000E-08
+         13    Hmholtz VELY:     12   8.0149E-09   3.8274E-01   1.0000E-08
+        13 U-PRES gmres:      8  4.2593E-07  1.0000E-06  2.0049E-03  3.5977E-04  7.2598E-04
+         13   6.9474E-02  1.3251E-03 Fluid done
+          13  tcrsl_min:    5.8269500732421875E-004
+          13  tcrsl_max:    7.3814392089843750E-004
+          13  tcrsl_avg:    6.9395701090494788E-004
+Step     14, t= 7.4817947E-02, DT= 5.3441391E-03, C=  0.500 3.2336E-02 2.1930E-03
+ Solving for fluid F T T
+         14    Hmholtz VELX:     13   4.7539E-09   9.3599E-01   1.0000E-08
+         14    Hmholtz VELY:     12   7.6475E-09   3.6487E-01   1.0000E-08
+        14 U-PRES gmres:      8  3.8582E-07  1.0000E-06  1.7770E-03  3.6311E-04  7.1001E-04
+         14   7.4818E-02  1.3020E-03 Fluid done
+          14  tcrsl_min:    6.2084197998046875E-004
+          14  tcrsl_max:    7.8487396240234375E-004
+          14  tcrsl_avg:    7.3866049448649085E-004
+Step     15, t= 8.0162087E-02, DT= 5.3441391E-03, C=  0.500 3.4499E-02 2.1629E-03
+ Solving for fluid F T T
+         15    Hmholtz VELX:     13   4.5183E-09   8.7917E-01   1.0000E-08
+         15    Hmholtz VELY:     12   7.3181E-09   3.4892E-01   1.0000E-08
+        15 U-PRES gmres:      8  3.5145E-07  1.0000E-06  1.5865E-03  3.8409E-04  7.2789E-04
+         15   8.0162E-02  1.3251E-03 Fluid done
+          15  tcrsl_min:    6.6208839416503906E-004
+          15  tcrsl_max:    8.3518028259277344E-004
+          15  tcrsl_avg:    7.8638394673665368E-004
+Step     16, t= 8.5506226E-02, DT= 5.3441391E-03, C=  0.500 3.6690E-02 2.1911E-03
+ Solving for fluid F T T
+         16    Hmholtz VELX:     13   4.2849E-09   8.2932E-01   1.0000E-08
+         16    Hmholtz VELY:     12   7.0215E-09   3.3459E-01   1.0000E-08
+        16 U-PRES gmres:      8  3.2181E-07  1.0000E-06  1.4265E-03  3.5977E-04  7.0405E-04
+         16   8.5506E-02  1.2989E-03 Fluid done
+          16  tcrsl_min:    6.9904327392578125E-004
+          16  tcrsl_max:    8.8262557983398438E-004
+          16  tcrsl_avg:    8.3172321319580078E-004
+Step     17, t= 9.0850365E-02, DT= 5.3441391E-03, C=  0.500 3.8848E-02 2.1579E-03
+ Solving for fluid F T T
+         17    Hmholtz VELX:     13   4.0560E-09   7.8520E-01   1.0000E-08
+         17    Hmholtz VELY:     12   6.7533E-09   3.2163E-01   1.0000E-08
+        17 U-PRES gmres:      8  2.9610E-07  1.0000E-06  1.2915E-03  3.6407E-04  7.1192E-04
+         17   9.0850E-02  1.3452E-03 Fluid done
+          17  tcrsl_min:    7.3719024658203125E-004
+          17  tcrsl_max:    9.3054771423339844E-004
+          17  tcrsl_avg:    8.7809562683105469E-004
+Step     18, t= 9.6194504E-02, DT= 5.3441391E-03, C=  0.500 4.1057E-02 2.2092E-03
+ Solving for fluid F T T
+         18    Hmholtz VELX:     13   3.8342E-09   7.4584E-01   1.0000E-08
+         18    Hmholtz VELY:     12   6.5098E-09   3.0986E-01   1.0000E-08
+        18 U-PRES gmres:      7  9.3430E-07  1.0000E-06  1.1774E-03  3.5310E-04  6.7997E-04
+         18   9.6195E-02  1.2798E-03 Fluid done
+          18  tcrsl_min:    7.7795982360839844E-004
+          18  tcrsl_max:    9.8252296447753906E-004
+          18  tcrsl_avg:    9.2542171478271484E-004
+Step     19, t= 1.0153864E-01, DT= 5.3441391E-03, C=  0.500 4.3206E-02 2.1489E-03
+ Solving for fluid F T T
+         19    Hmholtz VELX:     13   3.6220E-09   7.1048E-01   1.0000E-08
+         19    Hmholtz VELY:     12   6.2878E-09   2.9911E-01   1.0000E-08
+        19 U-PRES gmres:      7  8.7015E-07  1.0000E-06  1.0805E-03  3.1972E-04  6.2513E-04
+         19   1.0154E-01  1.2209E-03 Fluid done
+          19  tcrsl_min:    8.1157684326171875E-004
+          19  tcrsl_max:    1.0256767272949219E-003
+          19  tcrsl_avg:    9.6635023752848304E-004
+Step     20, t= 1.0688278E-01, DT= 5.3441391E-03, C=  0.500 4.5312E-02 2.1060E-03
+ Solving for fluid F T T
+         20    Hmholtz VELX:     13   3.4208E-09   6.7853E-01   1.0000E-08
+         20    Hmholtz VELY:     12   6.0847E-09   2.8926E-01   1.0000E-08
+        20 U-PRES gmres:      7  8.1332E-07  1.0000E-06  9.9786E-04  3.2878E-04  6.3086E-04
+         20   1.0688E-01  1.2310E-03 Fluid done
+          20  tcrsl_min:    8.4948539733886719E-004
+          20  tcrsl_max:    1.0704994201660156E-003
+          20  tcrsl_avg:    1.0090271631876628E-003
+Step     21, t= 1.1222692E-01, DT= 5.3441391E-03, C=  0.500 4.7431E-02 2.1191E-03
+ Solving for fluid F T T
+         21    Hmholtz VELX:     13   3.2319E-09   6.4948E-01   1.0000E-08
+         21    Hmholtz VELY:     12   5.8982E-09   2.8018E-01   1.0000E-08
+        21 U-PRES gmres:      7  7.6403E-07  1.0000E-06  9.2681E-04  3.1471E-04  6.2084E-04
+         21   1.1223E-01  1.2419E-03 Fluid done
+          21  tcrsl_min:    8.8143348693847656E-004
+          21  tcrsl_max:    1.1129379272460938E-003
+          21  tcrsl_avg:    1.0492006937662761E-003
+Step     22, t= 1.1757106E-01, DT= 5.3441391E-03, C=  0.500 4.9590E-02 2.1591E-03
+ Solving for fluid F T T
+         22    Hmholtz VELX:     13   3.0557E-09   6.2294E-01   1.0000E-08
+         22    Hmholtz VELY:     12   5.7263E-09   2.7180E-01   1.0000E-08
+        22 U-PRES gmres:      7  7.2050E-07  1.0000E-06  8.6519E-04  3.1614E-04  6.2513E-04
+         22   1.1757E-01  1.2169E-03 Fluid done
+          22  tcrsl_min:    9.1338157653808594E-004
+          22  tcrsl_max:    1.1558532714843750E-003
+          22  tcrsl_avg:    1.0884602864583333E-003
+Step     23, t= 1.2291520E-01, DT= 5.3441391E-03, C=  0.500 5.1711E-02 2.1210E-03
+ Solving for fluid F T T
+         23    Hmholtz VELX:     13   2.8922E-09   5.9860E-01   1.0000E-08
+         23    Hmholtz VELY:     12   5.5672E-09   2.6402E-01   1.0000E-08
+        23 U-PRES gmres:      7  6.8186E-07  1.0000E-06  8.1125E-04  3.1495E-04  6.2108E-04
+         23   1.2292E-01  1.2159E-03 Fluid done
+          23  tcrsl_min:    9.4628334045410156E-004
+          23  tcrsl_max:    1.1990070343017578E-003
+          23  tcrsl_avg:    1.1289914449055989E-003
+Step     24, t= 1.2825934E-01, DT= 5.3441391E-03, C=  0.500 5.3790E-02 2.0790E-03
+ Solving for fluid F T T
+         24    Hmholtz VELX:     13   2.7410E-09   5.7617E-01   1.0000E-08
+         24    Hmholtz VELY:     12   5.4194E-09   2.5679E-01   1.0000E-08
+        24 U-PRES gmres:      7  6.4732E-07  1.0000E-06  7.6360E-04  3.1805E-04  6.2203E-04
+         24   1.2826E-01  1.2209E-03 Fluid done
+          24  tcrsl_min:    9.8037719726562500E-004
+          24  tcrsl_max:    1.2397766113281250E-003
+          24  tcrsl_avg:    1.1684497197469075E-003
+Step     25, t= 1.3360348E-01, DT= 5.3441391E-03, C=  0.500 5.5887E-02 2.0969E-03
+ Solving for fluid F T T
+         25    Hmholtz VELX:     13   2.6017E-09   5.5544E-01   1.0000E-08
+         25    Hmholtz VELY:     12   5.2817E-09   2.5003E-01   1.0000E-08
+        25 U-PRES gmres:      7  6.1623E-07  1.0000E-06  7.2109E-04  3.1590E-04  6.2108E-04
+         25   1.3360E-01  1.2131E-03 Fluid done
+          25  tcrsl_min:    1.0111331939697266E-003
+          25  tcrsl_max:    1.2798309326171875E-003
+          25  tcrsl_avg:    1.2077093124389648E-003
+Step     26, t= 1.3894762E-01, DT= 5.3441391E-03, C=  0.500 5.7974E-02 2.0871E-03
+ Solving for fluid F T T
+         26    Hmholtz VELX:     13   2.4732E-09   5.3622E-01   1.0000E-08
+         26    Hmholtz VELY:     12   5.1530E-09   2.4371E-01   1.0000E-08
+        26 U-PRES gmres:      7  5.8806E-07  1.0000E-06  6.8285E-04  3.5787E-04  6.6304E-04
+         26   1.3895E-01  1.2600E-03 Fluid done
+          26  tcrsl_min:    1.0442733764648438E-003
+          26  tcrsl_max:    1.3248920440673828E-003
+          26  tcrsl_avg:    1.2491146723429363E-003
+Step     27, t= 1.4429176E-01, DT= 5.3441391E-03, C=  0.500 6.0138E-02 2.1639E-03
+ Solving for fluid F T T
+         27    Hmholtz VELX:     13   2.3548E-09   5.1833E-01   1.0000E-08
+         27    Hmholtz VELY:     12   5.0323E-09   2.3778E-01   1.0000E-08
+        27 U-PRES gmres:      7  5.6237E-07  1.0000E-06  6.4818E-04  3.1614E-04  6.1989E-04
+         27   1.4429E-01  1.2178E-03 Fluid done
+          27  tcrsl_min:    1.0762214660644531E-003
+          27  tcrsl_max:    1.3675689697265625E-003
+          27  tcrsl_avg:    1.2885729471842449E-003
+Step     28, t= 1.4963589E-01, DT= 5.3441391E-03, C=  0.500 6.2214E-02 2.0761E-03
+ Solving for fluid F T T
+         28    Hmholtz VELX:     13   2.2456E-09   5.0163E-01   1.0000E-08
+         28    Hmholtz VELY:     12   4.9188E-09   2.3220E-01   1.0000E-08
+        28 U-PRES gmres:      7  5.3882E-07  1.0000E-06  6.1654E-04  3.2377E-04  6.6400E-04
+         28   1.4964E-01  1.2729E-03 Fluid done
+          28  tcrsl_min:    1.1112689971923828E-003
+          28  tcrsl_max:    1.4114379882812500E-003
+          28  tcrsl_avg:    1.3294219970703125E-003
+Step     29, t= 1.5498003E-01, DT= 5.3441391E-03, C=  0.500 6.4353E-02 2.1389E-03
+ Solving for fluid F T T
+         29    Hmholtz VELX:     13   2.1445E-09   4.8602E-01   1.0000E-08
+         29    Hmholtz VELY:     12   4.8118E-09   2.2693E-01   1.0000E-08
+        29 U-PRES gmres:      7  5.1712E-07  1.0000E-06  5.8748E-04  3.1471E-04  6.1893E-04
+         29   1.5498E-01  1.2171E-03 Fluid done
+          29  tcrsl_min:    1.1410713195800781E-003
+          29  tcrsl_max:    1.4533996582031250E-003
+          29  tcrsl_avg:    1.3681650161743164E-003
+Step     30, t= 1.6032417E-01, DT= 5.3441391E-03, C=  0.500 6.6431E-02 2.0781E-03
+ Solving for fluid F T T
+         30    Hmholtz VELX:     13   2.0509E-09   4.7139E-01   1.0000E-08
+         30    Hmholtz VELY:     12   4.7105E-09   2.2196E-01   1.0000E-08
+        30 U-PRES gmres:      7  4.9702E-07  1.0000E-06  5.6068E-04  3.3712E-04  6.4087E-04
+         30   1.6032E-01  1.2369E-03 Fluid done
+          30  tcrsl_min:    1.1756420135498047E-003
+          30  tcrsl_max:    1.4994144439697266E-003
+          30  tcrsl_avg:    1.4093319574991863E-003
+Step     31, t= 1.6566831E-01, DT= 5.3441391E-03, C=  0.500 6.8528E-02 2.0969E-03
+ Solving for fluid F T T
+         31    Hmholtz VELX:     13   1.9640E-09   4.5763E-01   1.0000E-08
+         31    Hmholtz VELY:     12   4.6145E-09   2.1726E-01   1.0000E-08
+        31 U-PRES gmres:      7  4.7834E-07  1.0000E-06  5.3584E-04  3.1877E-04  6.2299E-04
+         31   1.6567E-01  1.2212E-03 Fluid done
+          31  tcrsl_min:    1.2125968933105469E-003
+          31  tcrsl_max:    1.5463829040527344E-003
+          31  tcrsl_avg:    1.4519294102986653E-003
+Step     32, t= 1.7101245E-01, DT= 5.3441391E-03, C=  0.500 7.0607E-02 2.0790E-03
+ Solving for fluid F T T
+         32    Hmholtz VELX:     13   1.8829E-09   4.4468E-01   1.0000E-08
+         32    Hmholtz VELY:     12   4.5233E-09   2.1280E-01   1.0000E-08
+        32 U-PRES gmres:      7  4.6091E-07  1.0000E-06  5.1276E-04  3.1567E-04  6.1893E-04
+         32   1.7101E-01  1.2321E-03 Fluid done
+          32  tcrsl_min:    1.2447834014892578E-003
+          32  tcrsl_max:    1.5904903411865234E-003
+          32  tcrsl_avg:    1.4925797780354817E-003
+Step     33, t= 1.7635659E-01, DT= 5.3441391E-03, C=  0.500 7.2696E-02 2.0890E-03
+ Solving for fluid F T T
+         33    Hmholtz VELX:     13   1.8073E-09   4.3246E-01   1.0000E-08
+         33    Hmholtz VELY:     12   4.4364E-09   2.0856E-01   1.0000E-08
+        33 U-PRES gmres:      7  4.4459E-07  1.0000E-06  4.9123E-04  3.2091E-04  6.2394E-04
+         33   1.7636E-01  1.2240E-03 Fluid done
+          33  tcrsl_min:    1.2779235839843750E-003
+          33  tcrsl_max:    1.6341209411621094E-003
+          33  tcrsl_avg:    1.5322764714558919E-003
+Step     34, t= 1.8170073E-01, DT= 5.3441391E-03, C=  0.500 7.4776E-02 2.0800E-03
+ Solving for fluid F T T
+         34    Hmholtz VELX:     12   9.6975E-09   4.2092E-01   1.0000E-08
+         34    Hmholtz VELY:     12   4.3534E-09   2.0453E-01   1.0000E-08
+        34 U-PRES gmres:      7  4.2928E-07  1.0000E-06  4.7112E-04  3.1924E-04  6.2203E-04
+         34   1.8170E-01  1.3061E-03 Fluid done
+          34  tcrsl_min:    1.3132095336914063E-003
+          34  tcrsl_max:    1.6784667968750000E-003
+          34  tcrsl_avg:    1.5739599863688152E-003
+Step     35, t= 1.8704487E-01, DT= 5.3441391E-03, C=  0.500 7.6952E-02 2.1760E-03
+ Solving for fluid F T T
+         35    Hmholtz VELX:     12   9.2921E-09   4.0999E-01   1.0000E-08
+         35    Hmholtz VELY:     12   4.2740E-09   2.0069E-01   1.0000E-08
+        35 U-PRES gmres:      7  4.1488E-07  1.0000E-06  4.5229E-04  3.2043E-04  6.2203E-04
+         35   1.8704E-01  1.2040E-03 Fluid done
+          35  tcrsl_min:    1.3453960418701172E-003
+          35  tcrsl_max:    1.7211437225341797E-003
+          35  tcrsl_avg:    1.6137758890787761E-003
+Step     36, t= 1.9238901E-01, DT= 5.3441391E-03, C=  0.500 7.9018E-02 2.0661E-03
+ Solving for fluid F T T
+         36    Hmholtz VELX:     12   8.9116E-09   3.9962E-01   1.0000E-08
+         36    Hmholtz VELY:     12   4.1980E-09   1.9703E-01   1.0000E-08
+        36 U-PRES gmres:      7  4.0130E-07  1.0000E-06  4.3463E-04  3.1900E-04  6.2299E-04
+         36   1.9239E-01  1.2329E-03 Fluid done
+          36  tcrsl_min:    1.3825893402099609E-003
+          36  tcrsl_max:    1.7642974853515625E-003
+          36  tcrsl_avg:    1.6549030939737956E-003
+Step     37, t= 1.9773315E-01, DT= 5.3441391E-03, C=  0.500 8.1115E-02 2.0969E-03
+ Solving for fluid F T T
+         37    Hmholtz VELX:     12   8.5541E-09   3.8978E-01   1.0000E-08
+         37    Hmholtz VELY:     12   4.1249E-09   1.9352E-01   1.0000E-08
+        37 U-PRES gmres:      7  3.8848E-07  1.0000E-06  4.1804E-04  3.2592E-04  6.2680E-04
+         37   1.9773E-01  1.2071E-03 Fluid done
+          37  tcrsl_min:    1.4216899871826172E-003
+          37  tcrsl_max:    1.8129348754882813E-003
+          37  tcrsl_avg:    1.7000436782836914E-003
+Step     38, t= 2.0307729E-01, DT= 5.3441391E-03, C=  0.500 8.3181E-02 2.0661E-03
+ Solving for fluid F T T
+         38    Hmholtz VELX:     12   8.2180E-09   3.8042E-01   1.0000E-08
+         38    Hmholtz VELY:     12   4.0547E-09   1.9017E-01   1.0000E-08
+        38 U-PRES gmres:      7  3.7635E-07  1.0000E-06  4.0244E-04  3.1710E-04  6.1989E-04
+         38   2.0308E-01  1.2069E-03 Fluid done
+          38  tcrsl_min:    1.4526844024658203E-003
+          38  tcrsl_max:    1.8568038940429688E-003
+          38  tcrsl_avg:    1.7392237981160481E-003
+Step     39, t= 2.0842142E-01, DT= 5.3441391E-03, C=  0.500 8.5258E-02 2.0769E-03
+ Solving for fluid F T T
+         39    Hmholtz VELX:     12   7.9018E-09   3.7150E-01   1.0000E-08
+         39    Hmholtz VELY:     12   3.9871E-09   1.8697E-01   1.0000E-08
+        39 U-PRES gmres:      7  3.6487E-07  1.0000E-06  3.8774E-04  3.1686E-04  6.2013E-04
+         39   2.0842E-01  1.2009E-03 Fluid done
+          39  tcrsl_min:    1.4865398406982422E-003
+          39  tcrsl_max:    1.9009113311767578E-003
+          39  tcrsl_avg:    1.7800728480021160E-003
+Step     40, t= 2.1376556E-01, DT= 5.3441391E-03, C=  0.500 8.7361E-02 2.1031E-03
+ Solving for fluid F T T
+         40    Hmholtz VELX:     12   7.6041E-09   3.6301E-01   1.0000E-08
+         40    Hmholtz VELY:     12   3.9219E-09   1.8389E-01   1.0000E-08
+        40 U-PRES gmres:      7  3.5398E-07  1.0000E-06  3.7390E-04  3.2115E-04  6.2394E-04
+         40   2.1377E-01  1.2040E-03 Fluid done
+          40  tcrsl_min:    1.5194416046142578E-003
+          40  tcrsl_max:    1.9445419311523438E-003
+          40  tcrsl_avg:    1.8204053243001301E-003
+Step     41, t= 2.1910970E-01, DT= 5.3441391E-03, C=  0.500 8.9424E-02 2.0630E-03
+ Solving for fluid F T T
+         41    Hmholtz VELX:     12   7.3235E-09   3.5489E-01   1.0000E-08
+         41    Hmholtz VELY:     12   3.8590E-09   1.8094E-01   1.0000E-08
+        41 U-PRES gmres:      7  3.4364E-07  1.0000E-06  3.6083E-04  3.1734E-04  6.1893E-04
+         41   2.1911E-01  1.2028E-03 Fluid done
+          41  tcrsl_min:    1.5525817871093750E-003
+          41  tcrsl_max:    1.9886493682861328E-003
+          41  tcrsl_avg:    1.8607378005981445E-003
+Step     42, t= 2.2445384E-01, DT= 5.3441391E-03, C=  0.500 9.1517E-02 2.0928E-03
+ Solving for fluid F T T
+         42    Hmholtz VELX:     12   7.0590E-09   3.4714E-01   1.0000E-08
+         42    Hmholtz VELY:     12   3.7982E-09   1.7810E-01   1.0000E-08
+        42 U-PRES gmres:      7  3.3382E-07  1.0000E-06  3.4849E-04  3.1877E-04  6.2299E-04
+         42   2.2445E-01  1.2150E-03 Fluid done
+          42  tcrsl_min:    1.5864372253417969E-003
+          42  tcrsl_max:    2.0327568054199219E-003
+          42  tcrsl_avg:    1.9015868504842122E-003
+Step     43, t= 2.2979798E-01, DT= 5.3441391E-03, C=  0.500 9.3618E-02 2.1012E-03
+ Solving for fluid F T T
+         43    Hmholtz VELX:     12   6.8093E-09   3.3972E-01   1.0000E-08
+         43    Hmholtz VELY:     12   3.7393E-09   1.7537E-01   1.0000E-08
+        43 U-PRES gmres:      7  3.2448E-07  1.0000E-06  3.3683E-04  3.1781E-04  6.1893E-04
+         43   2.2980E-01  1.2012E-03 Fluid done
+          43  tcrsl_min:    1.6193389892578125E-003
+          43  tcrsl_max:    2.0768642425537109E-003
+          43  tcrsl_avg:    1.9421577453613281E-003
+Step     44, t= 2.3514212E-01, DT= 5.3441391E-03, C=  0.500 9.5692E-02 2.0738E-03
+ Solving for fluid F T T
+         44    Hmholtz VELX:     12   6.5735E-09   3.3262E-01   1.0000E-08
+         44    Hmholtz VELY:     12   3.6824E-09   1.7275E-01   1.0000E-08
+        44 U-PRES gmres:      7  3.1559E-07  1.0000E-06  3.2580E-04  3.1924E-04  6.2585E-04
+         44   2.3514E-01  1.2181E-03 Fluid done
+          44  tcrsl_min:    1.6505718231201172E-003
+          44  tcrsl_max:    2.1207332611083984E-003
+          44  tcrsl_avg:    1.9822518030802407E-003
+Step     45, t= 2.4048626E-01, DT= 5.3441391E-03, C=  0.500 9.7772E-02 2.0802E-03
+ Solving for fluid F T T
+         45    Hmholtz VELX:     12   6.3507E-09   3.2581E-01   1.0000E-08
+         45    Hmholtz VELY:     12   3.6272E-09   1.7022E-01   1.0000E-08
+        45 U-PRES gmres:      7  3.0712E-07  1.0000E-06  3.1535E-04  3.1567E-04  6.2108E-04
+         45   2.4049E-01  1.2012E-03 Fluid done
+          45  tcrsl_min:    1.6827583312988281E-003
+          45  tcrsl_max:    2.1636486053466797E-003
+          45  tcrsl_avg:    2.0221074422200522E-003
+Step     46, t= 2.4583040E-01, DT= 5.3441391E-03, C=  0.500 9.9868E-02 2.0959E-03
+ Solving for fluid F T T
+         46    Hmholtz VELX:     12   6.1401E-09   3.1927E-01   1.0000E-08
+         46    Hmholtz VELY:     12   3.5737E-09   1.6778E-01   1.0000E-08
+        46 U-PRES gmres:      7  2.9905E-07  1.0000E-06  3.0546E-04  3.2401E-04  6.3109E-04
+         46   2.4583E-01  1.2109E-03 Fluid done
+          46  tcrsl_min:    1.7178058624267578E-003
+          46  tcrsl_max:    2.2089481353759766E-003
+          46  tcrsl_avg:    2.0627578099568686E-003
+Step     47, t= 2.5117454E-01, DT= 5.3441391E-03, C=  0.500 1.0194E-01 2.0680E-03
+ Solving for fluid F T T
+         47    Hmholtz VELX:     12   5.9408E-09   3.1300E-01   1.0000E-08
+         47    Hmholtz VELY:     12   3.5218E-09   1.6542E-01   1.0000E-08
+        47 U-PRES gmres:      7  2.9134E-07  1.0000E-06  2.9607E-04  3.1710E-04  6.1893E-04
+         47   2.5117E-01  1.2250E-03 Fluid done
+          47  tcrsl_min:    1.7495155334472656E-003
+          47  tcrsl_max:    2.2521018981933594E-003
+          47  tcrsl_avg:    2.1022160847981772E-003
+Step     48, t= 2.5651868E-01, DT= 5.3441391E-03, C=  0.500 1.0402E-01 2.0859E-03
+ Solving for fluid F T T
+         48    Hmholtz VELX:     12   5.7522E-09   3.0696E-01   1.0000E-08
+         48    Hmholtz VELY:     12   3.4714E-09   1.6315E-01   1.0000E-08
+        48 U-PRES gmres:      6  9.7393E-07  1.0000E-06  2.8717E-04  2.7323E-04  5.3620E-04
+         48   2.5652E-01  1.1160E-03 Fluid done
+          48  tcrsl_min:    1.7793178558349609E-003
+          48  tcrsl_max:    2.2876262664794922E-003
+          48  tcrsl_avg:    2.1364291508992514E-003
+Step     49, t= 2.6186282E-01, DT= 5.3441391E-03, C=  0.500 1.0599E-01 1.9729E-03
+ Solving for fluid F T T
+         49    Hmholtz VELX:     12   5.5735E-09   3.0116E-01   1.0000E-08
+         49    Hmholtz VELY:     12   3.4225E-09   1.6095E-01   1.0000E-08
+        49 U-PRES gmres:      6  9.4711E-07  1.0000E-06  2.7873E-04  2.7633E-04  5.3883E-04
+         49   2.6186E-01  1.1280E-03 Fluid done
+          49  tcrsl_min:    1.8103122711181641E-003
+          49  tcrsl_max:    2.3248195648193359E-003
+          49  tcrsl_avg:    2.1711985270182290E-003
+Step     50, t= 2.6720696E-01, DT= 5.3441391E-03, C=  0.500 1.0799E-01 1.9910E-03
+ Solving for fluid F T T
+         50    Hmholtz VELX:     12   5.4043E-09   2.9557E-01   1.0000E-08
+         50    Hmholtz VELY:     12   3.3749E-09   1.5882E-01   1.0000E-08
+        50 U-PRES gmres:      6  9.2429E-07  1.0000E-06  2.7066E-04  2.7609E-04  5.3596E-04
+         50   2.6721E-01  1.1830E-03 Fluid done
+          50  tcrsl_min:    1.8384456634521484E-003
+          50  tcrsl_max:    2.3617744445800781E-003
+          50  tcrsl_avg:    2.2062063217163086E-003
+Step     51, t= 2.7255109E-01, DT= 5.3441391E-03, C=  0.500 1.1003E-01 2.0461E-03
+ Solving for fluid F T T
+         51    Hmholtz VELX:     12   5.2441E-09   2.9018E-01   1.0000E-08
+         51    Hmholtz VELY:     12   3.3287E-09   1.5677E-01   1.0000E-08
+        51 U-PRES gmres:      6  9.0157E-07  1.0000E-06  2.6302E-04  2.9683E-04  5.9319E-04
+         51   2.7255E-01  1.1799E-03 Fluid done
+          51  tcrsl_min:    1.8706321716308594E-003
+          51  tcrsl_max:    2.4015903472900391E-003
+          51  tcrsl_avg:    2.2430022557576499E-003
+Step     52, t= 2.7789523E-01, DT= 5.3441391E-03, C=  0.500 1.1208E-01 2.0430E-03
+ Solving for fluid F T T
+         52    Hmholtz VELX:     12   5.0923E-09   2.8499E-01   1.0000E-08
+         52    Hmholtz VELY:     12   3.2838E-09   1.5477E-01   1.0000E-08
+        52 U-PRES gmres:      6  8.8012E-07  1.0000E-06  2.5574E-04  2.8706E-04  5.4502E-04
+         52   2.7790E-01  1.1258E-03 Fluid done
+          52  tcrsl_min:    1.9047260284423828E-003
+          52  tcrsl_max:    2.4394989013671875E-003
+          52  tcrsl_avg:    2.2812287012736001E-003
+Step     53, t= 2.8323937E-01, DT= 5.3441391E-03, C=  0.500 1.1406E-01 1.9848E-03
+ Solving for fluid F T T
+         53    Hmholtz VELX:     12   4.9485E-09   2.7998E-01   1.0000E-08
+         53    Hmholtz VELY:     12   3.2401E-09   1.5284E-01   1.0000E-08
+        53 U-PRES gmres:      6  8.5981E-07  1.0000E-06  2.4880E-04  2.7895E-04  5.5814E-04
+         53   2.8324E-01  1.1361E-03 Fluid done
+          53  tcrsl_min:    1.9376277923583984E-003
+          53  tcrsl_max:    2.4793148040771484E-003
+          53  tcrsl_avg:    2.3192167282104492E-003
+Step     54, t= 2.8858351E-01, DT= 5.3441391E-03, C=  0.500 1.1606E-01 1.9951E-03
+ Solving for fluid F T T
+         54    Hmholtz VELX:     12   4.8124E-09   2.7514E-01   1.0000E-08
+         54    Hmholtz VELY:     12   3.1976E-09   1.5097E-01   1.0000E-08
+        54 U-PRES gmres:      6  8.4056E-07  1.0000E-06  2.4218E-04  2.7514E-04  5.3596E-04
+         54   2.8858E-01  1.1179E-03 Fluid done
+          54  tcrsl_min:    1.9652843475341797E-003
+          54  tcrsl_max:    2.5174617767333984E-003
+          54  tcrsl_avg:    2.3544232050577798E-003
+Step     55, t= 2.9392765E-01, DT= 5.3441391E-03, C=  0.500 1.1803E-01 1.9710E-03
+ Solving for fluid F T T
+         55    Hmholtz VELX:     12   4.6836E-09   2.7046E-01   1.0000E-08
+         55    Hmholtz VELY:     12   3.1563E-09   1.4915E-01   1.0000E-08
+        55 U-PRES gmres:      6  8.2232E-07  1.0000E-06  2.3587E-04  2.7275E-04  5.3406E-04
+         55   2.9393E-01  1.1251E-03 Fluid done
+          55  tcrsl_min:    1.9950866699218750E-003
+          55  tcrsl_max:    2.5551319122314453E-003
+          55  tcrsl_avg:    2.3893912633260093E-003
+Step     56, t= 2.9927179E-01, DT= 5.3441391E-03, C=  0.500 1.2001E-01 1.9841E-03
+ Solving for fluid F T T
+         56    Hmholtz VELX:     12   4.5618E-09   2.6594E-01   1.0000E-08
+         56    Hmholtz VELY:     12   3.1160E-09   1.4738E-01   1.0000E-08
+        56 U-PRES gmres:      6  8.0505E-07  1.0000E-06  2.2984E-04  2.7204E-04  5.3787E-04
+         56   2.9927E-01  1.1182E-03 Fluid done
+          56  tcrsl_min:    2.0225048065185547E-003
+          56  tcrsl_max:    2.5939941406250000E-003
+          56  tcrsl_avg:    2.4238427480061850E-003
+Step     57, t= 3.0461593E-01, DT= 5.3441391E-03, C=  0.500 1.2198E-01 1.9698E-03
+ Solving for fluid F T T
+         57    Hmholtz VELX:     12   4.4468E-09   2.6157E-01   1.0000E-08
+         57    Hmholtz VELY:     12   3.0768E-09   1.4567E-01   1.0000E-08
+        57 U-PRES gmres:      6  7.8871E-07  1.0000E-06  2.2408E-04  3.2973E-04  6.8307E-04
+         57   3.0462E-01  1.2619E-03 Fluid done
+          57  tcrsl_min:    2.0546913146972656E-003
+          57  tcrsl_max:    2.6369094848632813E-003
+          57  tcrsl_avg:    2.4655659993489585E-003
+Step     58, t= 3.0996007E-01, DT= 5.3441391E-03, C=  0.500 1.2416E-01 2.1842E-03
+ Solving for fluid F T T
+         58    Hmholtz VELX:     12   4.3381E-09   2.5734E-01   1.0000E-08
+         58    Hmholtz VELY:     12   3.0386E-09   1.4400E-01   1.0000E-08
+        58 U-PRES gmres:      6  7.7325E-07  1.0000E-06  2.1857E-04  3.8886E-04  7.4816E-04
+         58   3.0996E-01  1.5991E-03 Fluid done
+          58  tcrsl_min:    2.0916461944580078E-003
+          58  tcrsl_max:    2.6881694793701172E-003
+          58  tcrsl_avg:    2.5138457616170249E-003
+Step     59, t= 3.1530421E-01, DT= 5.3441391E-03, C=  0.500 1.2678E-01 2.6190E-03
+ Solving for fluid F T T
+         59    Hmholtz VELX:     12   4.2356E-09   2.5324E-01   1.0000E-08
+         59    Hmholtz VELY:     12   3.0014E-09   1.4238E-01   1.0000E-08
+        59 U-PRES gmres:      6  7.5865E-07  1.0000E-06  2.1330E-04  2.8014E-04  5.4121E-04
+         59   3.1530E-01  1.1561E-03 Fluid done
+          59  tcrsl_min:    2.1216869354248047E-003
+          59  tcrsl_max:    2.7251243591308594E-003
+          59  tcrsl_avg:    2.5494893391927085E-003
+Step     60, t= 3.2064835E-01, DT= 5.3441391E-03, C=  0.500 1.2884E-01 2.0590E-03
+ Solving for fluid F T T
+         60    Hmholtz VELX:     12   4.1390E-09   2.4927E-01   1.0000E-08
+         60    Hmholtz VELY:     12   2.9651E-09   1.4081E-01   1.0000E-08
+        60 U-PRES gmres:      6  7.4487E-07  1.0000E-06  2.0825E-04  2.7990E-04  5.4193E-04
+         60   3.2065E-01  1.1621E-03 Fluid done
+          60  tcrsl_min:    2.1495819091796875E-003
+          60  tcrsl_max:    2.7613639831542969E-003
+          60  tcrsl_avg:    2.5837818781534829E-003
+Step     61, t= 3.2599249E-01, DT= 5.3441391E-03, C=  0.500 1.3090E-01 2.0599E-03
+ Solving for fluid F T T
+         61    Hmholtz VELX:     12   4.0480E-09   2.4542E-01   1.0000E-08
+         61    Hmholtz VELY:     12   2.9298E-09   1.3927E-01   1.0000E-08
+        61 U-PRES gmres:      6  7.3188E-07  1.0000E-06  2.0341E-04  2.7585E-04  5.3692E-04
+         61   3.2599E-01  1.1399E-03 Fluid done
+          61  tcrsl_min:    2.1774768829345703E-003
+          61  tcrsl_max:    2.7976036071777344E-003
+          61  tcrsl_avg:    2.6184320449829102E-003
+Step     62, t= 3.3133662E-01, DT= 5.3441391E-03, C=  0.500 1.3291E-01 2.0099E-03
+ Solving for fluid F T T
+         62    Hmholtz VELX:     12   3.9624E-09   2.4168E-01   1.0000E-08
+         62    Hmholtz VELY:     12   2.8953E-09   1.3778E-01   1.0000E-08
+        62 U-PRES gmres:      6  7.1965E-07  1.0000E-06  1.9876E-04  2.7585E-04  5.4097E-04
+         62   3.3134E-01  1.1258E-03 Fluid done
+          62  tcrsl_min:    2.2044181823730469E-003
+          62  tcrsl_max:    2.8336048126220703E-003
+          62  tcrsl_avg:    2.6522874832153320E-003
+Step     63, t= 3.3668076E-01, DT= 5.3441391E-03, C=  0.500 1.3490E-01 1.9891E-03
+ Solving for fluid F T T
+         63    Hmholtz VELX:     12   3.8820E-09   2.3806E-01   1.0000E-08
+         63    Hmholtz VELY:     12   2.8617E-09   1.3632E-01   1.0000E-08
+        63 U-PRES gmres:      6  7.0814E-07  1.0000E-06  1.9430E-04  2.7633E-04  5.3596E-04
+         63   3.3668E-01  1.1611E-03 Fluid done
+          63  tcrsl_min:    2.2335052490234375E-003
+          63  tcrsl_max:    2.8693675994873047E-003
+          63  tcrsl_avg:    2.6871760686238608E-003
+Step     64, t= 3.4202490E-01, DT= 5.3441391E-03, C=  0.500 1.3693E-01 2.0311E-03
+ Solving for fluid F T T
+         64    Hmholtz VELX:     12   3.8065E-09   2.3453E-01   1.0000E-08
+         64    Hmholtz VELY:     12   2.8289E-09   1.3491E-01   1.0000E-08
+        64 U-PRES gmres:      6  6.9733E-07  1.0000E-06  1.9002E-04  2.7275E-04  5.3191E-04
+         64   3.4202E-01  1.1139E-03 Fluid done
+          64  tcrsl_min:    2.2628307342529297E-003
+          64  tcrsl_max:    2.9072761535644531E-003
+          64  tcrsl_avg:    2.7217467625935874E-003
+Step     65, t= 3.4736904E-01, DT= 5.3441391E-03, C=  0.500 1.3890E-01 1.9679E-03
+ Solving for fluid F T T
+         65    Hmholtz VELX:     12   3.7357E-09   2.3111E-01   1.0000E-08
+         65    Hmholtz VELY:     12   2.7969E-09   1.3352E-01   1.0000E-08
+        65 U-PRES gmres:      6  6.8720E-07  1.0000E-06  1.8591E-04  2.7585E-04  5.3906E-04
+         65   3.4737E-01  1.1439E-03 Fluid done
+          65  tcrsl_min:    2.2926330566406250E-003
+          65  tcrsl_max:    2.9449462890625000E-003
+          65  tcrsl_avg:    2.7568737665812173E-003
+Step     66, t= 3.5271318E-01, DT= 5.3441391E-03, C=  0.500 1.4090E-01 2.0030E-03
+ Solving for fluid F T T
+         66    Hmholtz VELX:     12   3.6693E-09   2.2779E-01   1.0000E-08
+         66    Hmholtz VELY:     12   2.7657E-09   1.3217E-01   1.0000E-08
+        66 U-PRES gmres:      6  6.7771E-07  1.0000E-06  1.8195E-04  3.0494E-04  6.0105E-04
+         66   3.5271E-01  1.1890E-03 Fluid done
+          66  tcrsl_min:    2.3319721221923828E-003
+          66  tcrsl_max:    2.9890537261962891E-003
+          66  tcrsl_avg:    2.8001864751180014E-003
+Step     67, t= 3.5805732E-01, DT= 5.3441391E-03, C=  0.500 1.4296E-01 2.0521E-03
+ Solving for fluid F T T
+         67    Hmholtz VELX:     12   3.6071E-09   2.2456E-01   1.0000E-08
+         67    Hmholtz VELY:     12   2.7352E-09   1.3086E-01   1.0000E-08
+        67 U-PRES gmres:      6  6.6884E-07  1.0000E-06  1.7814E-04  2.7180E-04  5.3501E-04
+         67   3.5806E-01  1.1642E-03 Fluid done
+          67  tcrsl_min:    2.3596286773681641E-003
+          67  tcrsl_max:    3.0269622802734375E-003
+          67  tcrsl_avg:    2.8349955876668296E-003
+Step     68, t= 3.6340146E-01, DT= 5.3441391E-03, C=  0.500 1.4499E-01 2.0320E-03
+ Solving for fluid F T T
+         68    Hmholtz VELX:     12   3.5488E-09   2.2142E-01   1.0000E-08
+         68    Hmholtz VELY:     12   2.7054E-09   1.2957E-01   1.0000E-08
+        68 U-PRES gmres:      6  6.6057E-07  1.0000E-06  1.7447E-04  2.7704E-04  5.4717E-04
+         68   3.6340E-01  1.1311E-03 Fluid done
+          68  tcrsl_min:    2.3882389068603516E-003
+          68  tcrsl_max:    3.0651092529296875E-003
+          68  tcrsl_avg:    2.8708378473917642E-003
+Step     69, t= 3.6874560E-01, DT= 5.3441391E-03, C=  0.500 1.4697E-01 1.9870E-03
+ Solving for fluid F T T
+         69    Hmholtz VELX:     12   3.4943E-09   2.1836E-01   1.0000E-08
+         69    Hmholtz VELY:     12   2.6763E-09   1.2832E-01   1.0000E-08
+        69 U-PRES gmres:      6  6.5287E-07  1.0000E-06  1.7094E-04  2.7394E-04  5.3883E-04
+         69   3.6875E-01  1.1592E-03 Fluid done
+          69  tcrsl_min:    2.4173259735107422E-003
+          69  tcrsl_max:    3.1027793884277344E-003
+          69  tcrsl_avg:    2.9059648513793945E-003
+Step     70, t= 3.7408974E-01, DT= 5.3441391E-03, C=  0.500 1.4899E-01 2.0180E-03
+ Solving for fluid F T T
+         70    Hmholtz VELX:     12   3.4432E-09   2.1538E-01   1.0000E-08
+         70    Hmholtz VELY:     12   2.6479E-09   1.2709E-01   1.0000E-08
+        70 U-PRES gmres:      6  6.4572E-07  1.0000E-06  1.6753E-04  2.7680E-04  5.3787E-04
+         70   3.7409E-01  1.1289E-03 Fluid done
+          70  tcrsl_min:    2.4461746215820313E-003
+          70  tcrsl_max:    3.1394958496093750E-003
+          70  tcrsl_avg:    2.9401381810506186E-003
+Step     71, t= 3.7943388E-01, DT= 5.3441391E-03, C=  0.500 1.5098E-01 1.9839E-03
+ Solving for fluid F T T
+         71    Hmholtz VELX:     12   3.3954E-09   2.1248E-01   1.0000E-08
+         71    Hmholtz VELY:     12   2.6201E-09   1.2589E-01   1.0000E-08
+        71 U-PRES gmres:      6  6.3908E-07  1.0000E-06  1.6424E-04  2.7394E-04  5.3501E-04
+         71   3.7943E-01  1.1389E-03 Fluid done
+          71  tcrsl_min:    2.4731159210205078E-003
+          71  tcrsl_max:    3.1754970550537109E-003
+          71  tcrsl_avg:    2.9741525650024414E-003
+Step     72, t= 3.8477802E-01, DT= 5.3441391E-03, C=  0.500 1.5297E-01 1.9910E-03
+ Solving for fluid F T T
+         72    Hmholtz VELX:     12   3.3506E-09   2.0966E-01   1.0000E-08
+         72    Hmholtz VELY:     12   2.5929E-09   1.2472E-01   1.0000E-08
+        72 U-PRES gmres:      6  6.3294E-07  1.0000E-06  1.6107E-04  2.8110E-04  5.4002E-04
+         72   3.8478E-01  1.1239E-03 Fluid done
+          72  tcrsl_min:    2.5081634521484375E-003
+          72  tcrsl_max:    3.2165050506591797E-003
+          72  tcrsl_avg:    3.0131737391153970E-003
+Step     73, t= 3.9012215E-01, DT= 5.3441391E-03, C=  0.500 1.5495E-01 1.9791E-03
+ Solving for fluid F T T
+         73    Hmholtz VELX:     12   3.3086E-09   2.0691E-01   1.0000E-08
+         73    Hmholtz VELY:     12   2.5664E-09   1.2357E-01   1.0000E-08
+        73 U-PRES gmres:      6  6.2726E-07  1.0000E-06  1.5800E-04  2.7514E-04  5.3501E-04
+         73   3.9012E-01  1.1671E-03 Fluid done
+          73  tcrsl_min:    2.5362968444824219E-003
+          73  tcrsl_max:    3.2532215118408203E-003
+          73  tcrsl_avg:    3.0473470687866211E-003
+Step     74, t= 3.9546629E-01, DT= 5.3441391E-03, C=  0.500 1.5697E-01 2.0249E-03
+ Solving for fluid F T T
+         74    Hmholtz VELX:     12   3.2692E-09   2.0422E-01   1.0000E-08
+         74    Hmholtz VELY:     12   2.5404E-09   1.2245E-01   1.0000E-08
+        74 U-PRES gmres:      6  6.2202E-07  1.0000E-06  1.5504E-04  3.1137E-04  5.9700E-04
+         74   3.9547E-01  1.1849E-03 Fluid done
+          74  tcrsl_min:    2.5722980499267578E-003
+          74  tcrsl_max:    3.2966136932373047E-003
+          74  tcrsl_avg:    3.0881961186726889E-003
+Step     75, t= 4.0081043E-01, DT= 5.3441391E-03, C=  0.500 1.5902E-01 2.0511E-03
+ Solving for fluid F T T
+         75    Hmholtz VELX:     12   3.2321E-09   2.0161E-01   1.0000E-08
+         75    Hmholtz VELY:     12   2.5149E-09   1.2135E-01   1.0000E-08
+        75 U-PRES gmres:      6  6.1719E-07  1.0000E-06  1.5218E-04  2.7418E-04  5.3620E-04
+         75   4.0081E-01  1.1551E-03 Fluid done
+          75  tcrsl_min:    2.6001930236816406E-003
+          75  tcrsl_max:    3.3338069915771484E-003
+          75  tcrsl_avg:    3.1236807505289712E-003
+Step     76, t= 4.0615457E-01, DT= 5.3441391E-03, C=  0.500 1.6104E-01 2.0149E-03
+ Solving for fluid F T T
+         76    Hmholtz VELX:     12   3.1973E-09   1.9905E-01   1.0000E-08
+         76    Hmholtz VELY:     12   2.4900E-09   1.2028E-01   1.0000E-08
+        76 U-PRES gmres:      6  6.1276E-07  1.0000E-06  1.4941E-04  2.7704E-04  5.3906E-04
+         76   4.0615E-01  1.1230E-03 Fluid done
+          76  tcrsl_min:    2.6290416717529297E-003
+          76  tcrsl_max:    3.3731460571289063E-003
+          76  tcrsl_avg:    3.1590859095255532E-003
+Step     77, t= 4.1149871E-01, DT= 5.3441391E-03, C=  0.500 1.6302E-01 1.9860E-03
+ Solving for fluid F T T
+         77    Hmholtz VELX:     12   3.1644E-09   1.9656E-01   1.0000E-08
+         77    Hmholtz VELY:     12   2.4656E-09   1.1923E-01   1.0000E-08
+        77 U-PRES gmres:      6  6.0868E-07  1.0000E-06  1.4673E-04  2.7394E-04  5.3501E-04
+         77   4.1150E-01  1.1399E-03 Fluid done
+          77  tcrsl_min:    2.6574134826660156E-003
+          77  tcrsl_max:    3.4120082855224609E-003
+          77  tcrsl_avg:    3.1941334406534829E-003
+Step     78, t= 4.1684285E-01, DT= 5.3441391E-03, C=  0.500 1.6502E-01 2.0010E-03
+ Solving for fluid F T T
+         78    Hmholtz VELX:     12   3.1333E-09   1.9413E-01   1.0000E-08
+         78    Hmholtz VELY:     11   9.9809E-09   1.1820E-01   1.0000E-08
+        78 U-PRES gmres:      6  6.0494E-07  1.0000E-06  1.4413E-04  2.7609E-04  5.3596E-04
+         78   4.1684E-01  1.1070E-03 Fluid done
+          78  tcrsl_min:    2.6884078979492188E-003
+          78  tcrsl_max:    3.4487247467041016E-003
+          78  tcrsl_avg:    3.2301743825276694E-003
+Step     79, t= 4.2218699E-01, DT= 5.3441391E-03, C=  0.500 1.6699E-01 1.9610E-03
+ Solving for fluid F T T
+         79    Hmholtz VELX:     12   3.1038E-09   1.9176E-01   1.0000E-08
+         79    Hmholtz VELY:     11   9.8900E-09   1.1719E-01   1.0000E-08
+        79 U-PRES gmres:      6  6.0151E-07  1.0000E-06  1.4162E-04  2.8014E-04  5.4097E-04
+         79   4.2219E-01  1.1408E-03 Fluid done
+          79  tcrsl_min:    2.7232170104980469E-003
+          79  tcrsl_max:    3.4890174865722656E-003
+          79  tcrsl_avg:    3.2706260681152344E-003
+Step     80, t= 4.2753113E-01, DT= 5.3441391E-03, C=  0.500 1.6899E-01 2.0001E-03
+ Solving for fluid F T T
+         80    Hmholtz VELX:     12   3.0759E-09   1.8944E-01   1.0000E-08
+         80    Hmholtz VELY:     11   9.8005E-09   1.1620E-01   1.0000E-08
+        80 U-PRES gmres:      6  5.9837E-07  1.0000E-06  1.3918E-04  2.7418E-04  5.3406E-04
+         80   4.2753E-01  1.1029E-03 Fluid done
+          80  tcrsl_min:    2.7513504028320313E-003
+          80  tcrsl_max:    3.5271644592285156E-003
+          80  tcrsl_avg:    3.3056338628133139E-003
+Step     81, t= 4.3287527E-01, DT= 5.3441391E-03, C=  0.500 1.7094E-01 1.9529E-03
+ Solving for fluid F T T
+         81    Hmholtz VELX:     12   3.0492E-09   1.8717E-01   1.0000E-08
+         81    Hmholtz VELY:     11   9.7123E-09   1.1523E-01   1.0000E-08
+        81 U-PRES gmres:      6  5.9549E-07  1.0000E-06  1.3681E-04  2.7514E-04  5.3596E-04
+         81   4.3288E-01  1.1470E-03 Fluid done
+          81  tcrsl_min:    2.7794837951660156E-003
+          81  tcrsl_max:    3.5631656646728516E-003
+          81  tcrsl_avg:    3.3404032389322915E-003
+Step     82, t= 4.3821941E-01, DT= 5.3441391E-03, C=  0.500 1.7294E-01 2.0039E-03
+ Solving for fluid F T T
+         82    Hmholtz VELX:     12   3.0238E-09   1.8496E-01   1.0000E-08
+         82    Hmholtz VELY:     11   9.6256E-09   1.1428E-01   1.0000E-08
+        82 U-PRES gmres:      6  5.9284E-07  1.0000E-06  1.3452E-04  2.7227E-04  5.3310E-04
+         82   4.3822E-01  1.1029E-03 Fluid done
+          82  tcrsl_min:    2.8073787689208984E-003
+          82  tcrsl_max:    3.6001205444335938E-003
+          82  tcrsl_avg:    3.3741792043050132E-003
+Step     83, t= 4.4356355E-01, DT= 5.3441391E-03, C=  0.500 1.7489E-01 1.9512E-03
+ Solving for fluid F T T
+         83    Hmholtz VELX:     12   2.9995E-09   1.8279E-01   1.0000E-08
+         83    Hmholtz VELY:     11   9.5402E-09   1.1335E-01   1.0000E-08
+        83 U-PRES gmres:      6  5.9041E-07  1.0000E-06  1.3229E-04  2.7943E-04  5.4002E-04
+         83   4.4356E-01  1.1671E-03 Fluid done
+          83  tcrsl_min:    2.8393268585205078E-003
+          83  tcrsl_max:    3.6413669586181641E-003
+          83  tcrsl_avg:    3.4120480219523111E-003
+Step     84, t= 4.4890768E-01, DT= 5.3441391E-03, C=  0.500 1.7695E-01 2.0609E-03
+ Solving for fluid F T T
+         84    Hmholtz VELX:     12   2.9762E-09   1.8068E-01   1.0000E-08
+         84    Hmholtz VELY:     11   9.4560E-09   1.1243E-01   1.0000E-08
+        84 U-PRES gmres:      6  5.8817E-07  1.0000E-06  1.3013E-04  2.7609E-04  5.3692E-04
+         84   4.4891E-01  1.1120E-03 Fluid done
+          84  tcrsl_min:    2.8691291809082031E-003
+          84  tcrsl_max:    3.6783218383789063E-003
+          84  tcrsl_avg:    3.4462610880533853E-003
+Step     85, t= 4.5425182E-01, DT= 5.3441391E-03, C=  0.500 1.7892E-01 1.9679E-03
+ Solving for fluid F T T
+         85    Hmholtz VELX:     12   2.9537E-09   1.7861E-01   1.0000E-08
+         85    Hmholtz VELY:     11   9.3732E-09   1.1153E-01   1.0000E-08
+        85 U-PRES gmres:      6  5.8610E-07  1.0000E-06  1.2803E-04  2.7490E-04  5.3692E-04
+         85   4.5425E-01  1.1451E-03 Fluid done
+          85  tcrsl_min:    2.8979778289794922E-003
+          85  tcrsl_max:    3.7164688110351563E-003
+          85  tcrsl_avg:    3.4817457199096680E-003
+Step     86, t= 4.5959596E-01, DT= 5.3441391E-03, C=  0.500 1.8093E-01 2.0051E-03
+ Solving for fluid F T T
+         86    Hmholtz VELX:     12   2.9320E-09   1.7658E-01   1.0000E-08
+         86    Hmholtz VELY:     11   9.2916E-09   1.1065E-01   1.0000E-08
+        86 U-PRES gmres:      6  5.8419E-07  1.0000E-06  1.2599E-04  2.7466E-04  5.3692E-04
+         86   4.5960E-01  1.1060E-03 Fluid done
+          86  tcrsl_min:    2.9270648956298828E-003
+          86  tcrsl_max:    3.7534236907958984E-003
+          86  tcrsl_avg:    3.5167932510375977E-003
+Step     87, t= 4.6494010E-01, DT= 5.3441391E-03, C=  0.500 1.8289E-01 1.9619E-03
+ Solving for fluid F T T
+         87    Hmholtz VELX:     12   2.9110E-09   1.7460E-01   1.0000E-08
+         87    Hmholtz VELY:     11   9.2112E-09   1.0979E-01   1.0000E-08
+        87 U-PRES gmres:      6  5.8241E-07  1.0000E-06  1.2401E-04  2.7299E-04  5.3382E-04
+         87   4.6494E-01  1.1470E-03 Fluid done
+          87  tcrsl_min:    2.9561519622802734E-003
+          87  tcrsl_max:    3.7901401519775391E-003
+          87  tcrsl_avg:    3.5512447357177734E-003
+Step     88, t= 4.7028424E-01, DT= 5.3441391E-03, C=  0.500 1.8489E-01 2.0030E-03
+ Solving for fluid F T T
+         88    Hmholtz VELX:     12   2.8907E-09   1.7266E-01   1.0000E-08
+         88    Hmholtz VELY:     11   9.1321E-09   1.0894E-01   1.0000E-08
+        88 U-PRES gmres:      6  5.8075E-07  1.0000E-06  1.2208E-04  2.7466E-04  5.3501E-04
+         88   4.7028E-01  1.1101E-03 Fluid done
+          88  tcrsl_min:    2.9850006103515625E-003
+          88  tcrsl_max:    3.8273334503173828E-003
+          88  tcrsl_avg:    3.5860935846964517E-003
+Step     89, t= 4.7562838E-01, DT= 5.3441391E-03, C=  0.500 1.8686E-01 1.9650E-03
+ Solving for fluid F T T
+         89    Hmholtz VELX:     12   2.8709E-09   1.7076E-01   1.0000E-08
+         89    Hmholtz VELY:     11   9.0542E-09   1.0810E-01   1.0000E-08
+        89 U-PRES gmres:      6  5.7919E-07  1.0000E-06  1.2021E-04  2.7394E-04  5.3382E-04
+         89   4.7563E-01  1.1282E-03 Fluid done
+          89  tcrsl_min:    3.0131340026855469E-003
+          89  tcrsl_max:    3.8652420043945313E-003
+          89  tcrsl_avg:    3.6205848058064780E-003
+Step     90, t= 4.8097252E-01, DT= 5.3441391E-03, C=  0.500 1.8884E-01 1.9820E-03
+ Solving for fluid F T T
+         90    Hmholtz VELX:     12   2.8516E-09   1.6890E-01   1.0000E-08
+         90    Hmholtz VELY:     11   8.9774E-09   1.0728E-01   1.0000E-08
+        90 U-PRES gmres:      6  5.7772E-07  1.0000E-06  1.1838E-04  2.7609E-04  5.3620E-04
+         90   4.8097E-01  1.1051E-03 Fluid done
+          90  tcrsl_min:    3.0422210693359375E-003
+          90  tcrsl_max:    3.9031505584716797E-003
+          90  tcrsl_avg:    3.6559502283732095E-003
+Step     91, t= 4.8631666E-01, DT= 5.3441391E-03, C=  0.500 1.9080E-01 1.9591E-03
+ Solving for fluid F T T
+         91    Hmholtz VELX:     12   2.8328E-09   1.6708E-01   1.0000E-08
+         91    Hmholtz VELY:     11   8.9019E-09   1.0647E-01   1.0000E-08
+        91 U-PRES gmres:      6  5.7633E-07  1.0000E-06  1.1660E-04  2.7609E-04  5.3477E-04
+         91   4.8632E-01  1.1292E-03 Fluid done
+          91  tcrsl_min:    3.0720233917236328E-003
+          91  tcrsl_max:    3.9391517639160156E-003
+          91  tcrsl_avg:    3.6913156509399414E-003
+Step     92, t= 4.9166080E-01, DT= 5.3441391E-03, C=  0.500 1.9284E-01 2.0390E-03
+ Solving for fluid F T T
+         92    Hmholtz VELX:     12   2.8143E-09   1.6529E-01   1.0000E-08
+         92    Hmholtz VELY:     11   8.8274E-09   1.0568E-01   1.0000E-08
+        92 U-PRES gmres:      6  5.7500E-07  1.0000E-06  1.1487E-04  2.7394E-04  5.3811E-04
+         92   4.9166E-01  1.1089E-03 Fluid done
+          92  tcrsl_min:    3.0989646911621094E-003
+          92  tcrsl_max:    3.9761066436767578E-003
+          92  tcrsl_avg:    3.7260055541992188E-003
+Step     93, t= 4.9700494E-01, DT= 5.3441391E-03, C=  0.500 1.9480E-01 1.9670E-03
+ Solving for fluid F T T
+         93    Hmholtz VELX:     12   2.7962E-09   1.6355E-01   1.0000E-08
+         93    Hmholtz VELY:     11   8.7541E-09   1.0490E-01   1.0000E-08
+        93 U-PRES gmres:      6  5.7372E-07  1.0000E-06  1.1319E-04  2.7609E-04  5.3787E-04
+         93   4.9700E-01  1.1351E-03 Fluid done
+          93  tcrsl_min:    3.1268596649169922E-003
+          93  tcrsl_max:    4.0130615234375000E-003
+          93  tcrsl_avg:    3.7604570388793945E-003
+Step     94, t= 5.0234908E-01, DT= 5.3441391E-03, C=  0.500 1.9681E-01 2.0010E-03
+ Solving for fluid F T T
+         94    Hmholtz VELX:     12   2.7784E-09   1.6183E-01   1.0000E-08
+         94    Hmholtz VELY:     11   8.6819E-09   1.0414E-01   1.0000E-08
+        94 U-PRES gmres:      6  5.7249E-07  1.0000E-06  1.1155E-04  2.7370E-04  5.3310E-04
+         94   5.0235E-01  1.1029E-03 Fluid done
+          94  tcrsl_min:    3.1545162200927734E-003
+          94  tcrsl_max:    4.0509700775146484E-003
+          94  tcrsl_avg:    3.7948290506998696E-003
+Step     95, t= 5.0769321E-01, DT= 5.3441391E-03, C=  0.500 1.9877E-01 1.9619E-03
+ Solving for fluid F T T
+         95    Hmholtz VELX:     12   2.7609E-09   1.6015E-01   1.0000E-08
+         95    Hmholtz VELY:     11   8.6108E-09   1.0338E-01   1.0000E-08
+        95 U-PRES gmres:      6  5.7130E-07  1.0000E-06  1.0994E-04  3.1209E-04  6.1297E-04
+         95   5.0769E-01  1.2028E-03 Fluid done
+          95  tcrsl_min:    3.1921863555908203E-003
+          95  tcrsl_max:    4.0907859802246094E-003
+          95  tcrsl_avg:    3.8363138834635415E-003
+Step     96, t= 5.1303735E-01, DT= 5.3441391E-03, C=  0.500 2.0084E-01 2.0711E-03
+ Solving for fluid F T T
+         96    Hmholtz VELX:     12   2.7437E-09   1.5850E-01   1.0000E-08
+         96    Hmholtz VELY:     11   8.5408E-09   1.0264E-01   1.0000E-08
+        96 U-PRES gmres:      6  5.7013E-07  1.0000E-06  1.0838E-04  2.7490E-04  5.3596E-04
+         96   5.1304E-01  1.1070E-03 Fluid done
+          96  tcrsl_min:    3.2212734222412109E-003
+          96  tcrsl_max:    4.1286945343017578E-003
+          96  tcrsl_avg:    3.8707653681437173E-003
+Step     97, t= 5.1838149E-01, DT= 5.3441391E-03, C=  0.500 2.0280E-01 1.9610E-03
+ Solving for fluid F T T
+         97    Hmholtz VELX:     12   2.7266E-09   1.5688E-01   1.0000E-08
+         97    Hmholtz VELY:     11   8.4718E-09   1.0191E-01   1.0000E-08
+        97 U-PRES gmres:      6  5.6899E-07  1.0000E-06  1.0686E-04  2.7728E-04  5.3692E-04
+         97   5.1838E-01  1.1210E-03 Fluid done
+          97  tcrsl_min:    3.2494068145751953E-003
+          97  tcrsl_max:    4.1654109954833984E-003
+          97  tcrsl_avg:    3.9044618606567383E-003
+Step     98, t= 5.2372563E-01, DT= 5.3441391E-03, C=  0.500 2.0478E-01 1.9789E-03
+ Solving for fluid F T T
+         98    Hmholtz VELX:     12   2.7098E-09   1.5530E-01   1.0000E-08
+         98    Hmholtz VELY:     11   8.4039E-09   1.0120E-01   1.0000E-08
+        98 U-PRES gmres:      6  5.6786E-07  1.0000E-06  1.0537E-04  2.7370E-04  5.3501E-04
+         98   5.2373E-01  1.1079E-03 Fluid done
+          98  tcrsl_min:    3.2777786254882813E-003
+          98  tcrsl_max:    4.2014122009277344E-003
+          98  tcrsl_avg:    3.9390325546264648E-003
+Step     99, t= 5.2906977E-01, DT= 5.3441391E-03, C=  0.500 2.0674E-01 1.9610E-03
+ Solving for fluid F T T
+         99    Hmholtz VELX:     12   2.6931E-09   1.5374E-01   1.0000E-08
+         99    Hmholtz VELY:     11   8.3371E-09   1.0049E-01   1.0000E-08
+        99 U-PRES gmres:      6  5.6675E-07  1.0000E-06  1.0392E-04  2.7585E-04  5.3692E-04
+         99   5.2907E-01  1.1420E-03 Fluid done
+          99  tcrsl_min:    3.3054351806640625E-003
+          99  tcrsl_max:    4.2393207550048828E-003
+          99  tcrsl_avg:    3.9732853571573896E-003
+Step    100, t= 5.3441391E-01, DT= 5.3441391E-03, C=  0.500 2.0874E-01 1.9991E-03
+ Solving for fluid F T T
+        100    Hmholtz VELX:     12   2.6766E-09   1.5222E-01   1.0000E-08
+        100    Hmholtz VELY:     11   8.2712E-09   9.9793E-02   1.0000E-08
+       100 U-PRES gmres:      6  5.6564E-07  1.0000E-06  1.0251E-04  2.7585E-04  5.4002E-04
+        100   5.3441E-01  1.1370E-03 Fluid done
+         100  tcrsl_min:    3.3354759216308594E-003
+         100  tcrsl_max:    4.2762756347656250E-003
+         100  tcrsl_avg:    4.0082534154256182E-003
+ call outfld: ifpsco: F
+
+      100  5.3441E-01 Write checkpoint:
+       0     100 OPEN: cavity0.f00001
+
+      100  5.3441E-01 done :: Write checkpoint
+                              file size =     442.E-04MB
+                              avg data-throughput =     1.9MB/s
+                              io-nodes =     1
+
+
+end of time-step loop
+
+runtime statistics:
+ total time  0.23315225110778809     
+ tgop time        9973   2.6419401168823242E-002  0.11331394418580736     
+ inv3 time         777   3.7169456481933594E-004   1.5942139226762116E-003
+ invc time         400   5.2547454833984375E-004   2.2537828643863825E-003
+ mltd time        1554   8.7392330169677734E-003   3.7482945051761730E-002
+ cdtp time        1754   9.7019672393798828E-003   4.1612153403119356E-002
+ eslv time         100   6.3934087753295898E-002  0.27421604316288017     
+ pres time         100   6.8284988403320313E-002  0.29287724256949865     
+ crsl time         677   3.8285255432128906E-003   1.6420710179816937E-002
+ crsl min    3.3354759216308594E-003
+ crsl max    4.2762756347656250E-003
+ crsl avg    4.0082534154256182E-003
+ hmhz time         200   4.8337459564208984E-002  0.20732143624837748     
+ spro time         101   7.1120262145996094E-004   3.0503785319712247E-003
+ usbc time         101   2.3646354675292969E-003   1.0142022889738721E-002
+ usbc min    1.9900798797607422E-003
+ usbc max    2.3646354675292969E-003
+ usb  avg    2.2422472635904946E-003
+ axhm time        3051   1.6046524047851563E-002   6.8824229539319909E-002
+ advc time         200   5.3129196166992188E-003   2.2787339995456509E-002
+ vdss time         778   3.5431385040283203E-003   1.5196672934503642E-002
+ vdss min    2.7720928192138672E-003
+ vdss max    5.9304237365722656E-003
+ vdss avg    4.7756830851236982E-003
+ dsum time        4968   1.5359878540039063E-002   6.5879177520521012E-002
+ dsum min    1.5359878540039063E-002
+ dsum max    2.0382881164550781E-002
+ dsum avg    1.7951051394144695E-002
+ dadd time           0   7.5082778930664063E-003   3.2203325755560779E-002
+ ddsl time         677   3.1107902526855469E-002  0.13342312750166863     
+ solv time         677   4.7979354858398438E-003   2.0578550981357333E-002
+ prep time         100   2.4740457534790039E-002  0.10611288296484143     
+
+#  nid       tusbc       tdadd       tcrsl       tvdss       tdsum        tgop    qqq    F
+           0  2.3646E-03  7.5083E-03  3.8285E-03  3.5431E-03  1.5360E-02  2.6419E-02 qqq
+           1  2.2559E-03  8.1699E-03  4.2500E-03  5.1572E-03  1.5750E-02  3.9146E-02 qqq
+           2  2.2004E-03  7.7133E-03  4.2357E-03  5.5528E-03  1.8078E-02  3.5813E-02 qqq
+           3  2.2929E-03  8.0366E-03  3.3355E-03  5.9304E-03  2.0383E-02  3.3351E-02 qqq
+           4  2.3496E-03  7.8979E-03  4.1234E-03  5.6984E-03  1.8590E-02  3.2823E-02 qqq
+           5  1.9901E-03  8.1158E-03  4.2763E-03  2.7721E-03  1.9546E-02  3.4453E-02 qqq
+  
+call exitt: dying ...
+  
+backtrace(): obtained 5 stack frames.
+./nek5000(print_stack_+0x1a) [0x50f3ca]
+./nek5000(exitt_+0x1cd) [0x5f30bd]
+./nek5000(main+0x39) [0x420709]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd) [0x7f068c9a9ead]
+./nek5000() [0x420739]
+  
+total elapsed time             :   2.48292E-01 sec
+total solver time incl. I/O    :   2.33152E-01 sec
+time/timestep                  :   2.33152E-03 sec
+CPU seconds/timestep/gridpt    :   7.56578E-06 sec
+
